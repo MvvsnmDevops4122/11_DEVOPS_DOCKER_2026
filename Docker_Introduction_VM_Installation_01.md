@@ -32,6 +32,8 @@
 
    🔹 Memory sharing is not possible.
 
+  <img width="905" height="617" alt="image" src="https://github.com/user-attachments/assets/cccb26e5-3727-416a-be91-ba87abca14ca" />
+
 ---
 
 #  Similar Tools to Docker 
