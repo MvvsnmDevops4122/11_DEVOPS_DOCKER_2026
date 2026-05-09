@@ -205,3 +205,79 @@ OR `docker inspect -f '{{.NetworkSettings.Networks.bridge.IPAddress}}' TWO`
 * `docker run --memory="64m" -d  -p 8084:8080 --name FIVE satyamolleti4599/maven-web-app:1.0.0`
 
 * `docker inspect <cid>`
+---
+
+#  Copying Files Between Host and Docker Container
+
+##  Copy from Container to Host
+
+ Syntax:
+
+```bash
+docker cp <container_name>:<container_path> <host_path>
+```
+
+✅ Example:
+
+```bash
+docker cp ONE:/usr/local/tomcat/logs/localhost.2025-07-27.log .
+```
+
+➡️ This copies the file from inside the container to the current directory on your system.
+
+---
+
+## Copy from Host to Container
+
+➡️ Syntax:
+
+```bash
+docker cp <host_path> <container_name>:<container_path>
+```
+
+✅ Example:
+
+```bash
+docker cp Jenkinsfile ONE:/usr/local/tomcat/
+```
+
+➡️ This copies the Jenkinsfile from your system to the specified path inside the container.
+
+---
+
+#  IQ (Interview Question)
+
+## What is the difference between COPY and docker cp?
+
+###  COPY
+
+The `COPY` instruction is used inside a Dockerfile to copy files or directories from the host machine (build context) into the Docker image during the image build process.
+
+✅ Example:
+
+```dockerfile
+COPY demo.txt /app/
+```
+
+---
+
+### 🔹 docker cp
+
+The `docker cp` command is used after a container is created or running. It copies files between the host system and the container.
+
+✅ It supports:
+
+1. Copying files from container to host  
+2. Copying files from host to container  
+
+✅ Example:
+
+```bash
+docker cp demo.txt ONE:/usr/local/tomcat/
+```
+
+```bash
+docker cp ONE:/usr/local/tomcat/logs/catalina.out .
+```
+
+---
