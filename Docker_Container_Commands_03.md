@@ -140,12 +140,19 @@ OR `docker inspect -f '{{.NetworkSettings.Networks.bridge.IPAddress}}' TWO`
 
 ##  Dangling Docker Images
 
+* Dangling images are untagged and unused Docker images created when rebuilding images with the same tag.
+
+* A dangling image is an untagged Docker image that is not referenced by any container.
+
+* It usually appears as <none> for both the REPOSITORY and TAG fields when you run: docker images
+
 * How to View Dangling Images: `docker images -f dangling=true`
 
 * How to View Non-Dangling Images (normal images): `docker images -f dangling=false -q`
 
 * How to Remove Dangling Images: `docker rmi -f $(docker images -f dangling=true -q)`
 
+* Remove Dangling Images or Unused: ` docker rmi $(docker images -f dangling=true -q) OR docker image prune`
 
 ---
 
