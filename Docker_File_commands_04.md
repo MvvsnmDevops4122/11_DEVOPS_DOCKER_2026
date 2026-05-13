@@ -158,6 +158,7 @@ ADD https://example.com/file.tar.gz /app/      # Downloads file from the interne
 ADD ./scripts /opt/scripts                     # Adds a local folder to the image
 ```
 ---
+```dockerfile
 ## Dockerfile (Complete ADD Use Case)
 
 FROM ubuntu:20.04
@@ -184,6 +185,7 @@ RUN chmod +x /demo/Jenkinsfile
 
 CMD ["bash", "-c", "ls -R /demo && echo 'ADD command demo complete.'"]
 
+```
 1. Build the Docker Image: docker build -t demo-add-usecases .
 
 2. Run the Container: docker run --rm demo-add-usecases
